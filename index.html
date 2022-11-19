@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="https://kit.fontawesome.com/689f803f05.js" crossorigin="anonymous"></script>
+	<style type="text/css">
+		body{
+			background-image: url(https://thumbs.dreamstime.com/b/sea-water-ocean-wave-surfing-surface-colorful-vibrant-sunset-barrel-shape-124362369.jpg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 130%;
+
+		}
+		#submit{
+			background-color: blue;
+			color: white;
+		}
+		.listtype{
+			list-style: none;
+		}
+		.listvalue{
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<input id="new" placeholder="Enter data">
+	<ul>
+		
+	</ul>
+	<button id="submit" onclick="todo()">Submit</button>
+	<script type="text/javascript">
+		function todo(){
+			let newTodo=document.getElementById("new").value,todoList=[]
+			if(newTodo===""){
+				alert("Enter a new todo value")
+			}
+			else{
+				add(newTodo)
+			}
+			//console.log(newTodo)
+			console.log(todoList);
+			document.getElementById("new").value=""
+		}
+		function add(newValue){
+			let ul=document.querySelector("ul")
+			console.log(ul)
+			let li=document.createElement("li")
+			li.innerHTML=`
+			<span class="listvalue">${newValue}</span>
+			<i class="fa-sharp fa-solid fa-rectangle-xmark"></i>
+			`
+			li.classList.add("listtype")
+			ul.appendChild(li)
+		}
+	</script>
+</body>
+</html>
